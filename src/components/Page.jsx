@@ -55,33 +55,65 @@ const Page = () => {
   };
 
   return (
-   <main className="min-h-screen bg-gray-200 flex items-center justify-center p-6">
+    <main className="min-h-screen bg-gray-200 flex items-center justify-center p-6">
+      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-gray-300 p-10">
+        <header className="text-3xl font-semibold text-gray-700 text-center mb-6">
+          Counter App
+        </header>
 
+        <section className="flex flex-col items-center justify-center w-60 mx-auto p-5 rounded-xl bg-gray-50 shadow-md border gap-3">
+  <div className="flex justify-center items-center gap-3">
 
-  <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-gray-300 p-10">
+   
+    <div onClick={decrementHandler} className="cursor-pointer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="lucide lucide-circle-minus"
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M8 12h8" />
+      </svg>
+    </div>
 
-    <header className="text-3xl font-semibold text-gray-700 text-center mb-6">
-      Counter App
-    </header>
+   
+    <div className="text-center text-3xl font-bold text-gray-800">
+      {number}
+    </div>
 
-    <section className="flex flex-col items-center justify-center w-60 mx-auto p-5 rounded-xl bg-gray-50 shadow-md border">
-        
-      <div className="text-center mb-4 text-4xl font-bold text-gray-800">
-        {number}
-      </div>
-
-      <div className="flex justify-center gap-3">
-        <Button label="Decre" onClick={decrementHandler} />
-        <Button label="Reset" onClick={resetHandler} />
-        <Button label="Incre" onClick={incrementHandler} />
-      </div>
-
-    </section>
-
+   
+    <div onClick={incrementHandler} className="cursor-pointer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="lucide lucide-circle-plus"
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M8 12h8" />
+        <path d="M12 8v8" />
+      </svg>
+    </div>
   </div>
 
-</main>
+  <Button label="Reset" onClick={resetHandler} />
+</section>
 
+      </div>
+    </main>
   );
 };
 
