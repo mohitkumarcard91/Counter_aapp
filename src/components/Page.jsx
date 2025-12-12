@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { toast, Bounce, Zoom } from "react-toastify";
 import Button from "./ui/Button";
 
@@ -11,7 +11,7 @@ const Page = () => {
     localStorage.setItem("number", number);
   }, [number]);
 
-  const incrementHandler = () => {
+  const incrementHandler = useCallback(() => {
     setNumber((prev) => {
       const updated = prev + 1;
       if (updated % 10 === 0) {
@@ -24,9 +24,9 @@ const Page = () => {
 
       return updated;
     });
-  };
+  },[number]);
 
-  const decrementHandler = () => {
+  const decrementHandler = useCallback(() => {
     setNumber((prev) => {
       const updated = prev - 1;
 
@@ -42,9 +42,9 @@ const Page = () => {
 
       return updated;
     });
-  };
+  },[number]);
 
-  const resetHandler = () => {
+  const resetHandler = useCallback(() => {
     setNumber(0);
 
     toast.warning("You have reset your number!", {
@@ -52,7 +52,7 @@ const Page = () => {
       position: "top-center",
       autoClose: 1200,
     });
-  };
+  },[number]);
 
   return (
     <main className="min-h-screen bg-gray-200 flex items-center justify-center p-6">
